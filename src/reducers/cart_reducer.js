@@ -13,11 +13,11 @@ const cart_reducer = (state, action) => {
     if (tempItem) {
       const tempCart = state.cart.map((cartItem) => {
         if (cartItem.id === id + color) {
-          let newAmout = cartItem.amount + amount;
-          if (newAmout > cartItem.max) {
-            newAmout = cartItem.max;
+          let newAmount = cartItem.amount + amount;
+          if (newAmount > cartItem.max) {
+            newAmount = cartItem.max;
           }
-          return { ...cartItem, amount: newAmout };
+          return { ...cartItem, amount: newAmount };
         } else {
           return cartItem;
         }
@@ -34,7 +34,9 @@ const cart_reducer = (state, action) => {
         price: product.price,
         max: product.stock,
       };
-      return { ...state, cart: [...state.cart], newItem };
+      console.log("should add to cart..");
+      console.log(newItem);
+      return { ...state, cart: [...state.cart, newItem] };
     }
   }
 
