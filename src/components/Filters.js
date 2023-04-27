@@ -100,6 +100,7 @@ const Filters = () => {
                 if (c === "all") {
                   return (
                     <button
+                      key={index}
                       name="color"
                       onClick={updateFilters}
                       data-color="all"
